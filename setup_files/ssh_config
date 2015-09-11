@@ -6,7 +6,7 @@ Host vmfilehost
     BatchMode              yes
     PasswordAuthentication no
 
-Host g4*
+Host g4* vmcenter.cse.ohio-state.edu
     ServerAliveInterval    60
     TCPKeepAlive           yes
     ProxyCommand           ssh -qaY bastion 'nc -w 14400 %h %p'
