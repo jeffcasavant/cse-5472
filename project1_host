@@ -1,0 +1,2 @@
+[hardened_host]
+g4_hardened disk='10' datastore='CSE5472 SAN_Lun_10' network='none' memory='512' cpucount='1' osid='none'
