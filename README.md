@@ -3,6 +3,7 @@
 ## Required tools
 
  - Ansible
+ - The Python2 package "pysphere"
 
 ## Setup
 
