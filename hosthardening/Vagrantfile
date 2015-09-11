@@ -1,6 +1,9 @@
-# Vagrantfile API/syntax version. Don't touch unless you know what you're
-# doing!
+# vi: set ft=ruby :
+require 'yaml'
+
 VAGRANTFILE_API_VERSION = "2"
+
+local_settings = YAML.load_file 'vagrant_local.yml'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
@@ -9,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.provider :vsphere do |vsphere|
         # The host we're going to connect to
-        vsphere.host = '192.168.1.253'                            
+        vsphere.host = 'vmcenter.cse.ohio-state.edu'
 
         # The host for the new VM
         vsphere.compute_resource_name = '192.168.1.2'            
@@ -21,13 +24,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vsphere.template_name = 'ubuntu.template.dc.sw10.net'    
 
         # The name of the new machine
-        vsphere.name = 'bingo'                                     
+        vsphere.name = local_settings['vm_hostname']
 
         # vSphere login
-        vsphere.user = 'root'                                    
+        vsphere.user = local_settings['username']
 
         # vSphere password
-        vsphere.password = 'password'                            
+        vsphere.password = local_settings['password']
 
         # If you don't have SSL configured correctly, set this to 'true'
         vsphere.insecure = true                                    
