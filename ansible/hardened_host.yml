@@ -1,6 +1,6 @@
 # A set of VMs
 # containing only one hardened VM with the proper roles
 
-- hosts: project1_host
+- hosts: hardened_host
   roles:
   - hardened
