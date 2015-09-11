@@ -34,6 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         # If you don't have SSL configured correctly, set this to 'true'
         vsphere.insecure = true                                    
+        end
   
     config.vm.network :public_network
 
