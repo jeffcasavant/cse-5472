@@ -1,0 +1,4 @@
+# Overall build
+# This will get complicated when we have more than one VM
+
+- include: hardened_host.yml

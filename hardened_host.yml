@@ -1,0 +1,7 @@
+# A set of VMs
+# containing only one hardened VM with the proper roles
+
+# TODO: This needs to be a dynamic ESXi inventory, not a file named "hardened_host"
+- hosts: hardened_host
+  roles:
+  - hardened
