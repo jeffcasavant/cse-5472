@@ -5,17 +5,28 @@
   gather_facts: false
   serial: 1
 
+  vars_prompt:
+    - name:    'username'
+      prompt:  'Enter your vCenter username'
+      private: no
+    - name:    'password'
+      prompt:  'Enter your vCenter password'
+      private: yes
+    - name:    'hostname'
+      prompt:  'Enter the hostname for the VM'
+      private: no
+
   tasks:
   - vsphere_guest:
-      vcenter_hostname: vmcenter.cse.ohio-state.edu
-      username: casavant
-      password: 
-      guest: g1_jeff2
+      vcenter_hostname: "127.0.0.1"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      guest: "{{ hostname }}"
       state: powered_on
       vm_extra_config:
         vcpu.hotadd: yes
         mem.hotadd:  yes
-        notes: Jeffs ansible test vm
+        notes: Ansible test vm
       vm_disk:
         disk1:
           size_gb: 10
