@@ -9,7 +9,7 @@ Host vmfilehost
 Host g4* vmcenter.cse.ohio-state.edu
     ServerAliveInterval    60
     TCPKeepAlive           yes
-    ProxyCommand           ssh -qaY bastion 'nc -w 14400 %h %p'
+    ProxyCommand           ssh -qaY vmfilehost 'nc -w 14400 %h %p'
     ControlMaster          auto
     ControlPath            ~/.ssh/mux-%r@%h:%p
     ControlPersist         8h
