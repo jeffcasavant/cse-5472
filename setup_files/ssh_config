@@ -3,14 +3,14 @@ Host vmfilehost
     User                   casavant
     HostName               vmfilehost.cse.ohio-state.edu
     ProxyCommand           none
-    IdentityFile           ~/.ssh/id_rsa
+    #IdentityFile           ~/.ssh/id_rsa
     BatchMode              yes
-    PasswordAuthentication no
+    #PasswordAuthentication no
 
 Host g1dev
     # User on dev host
     User                   jeff
-    HostName               10.1.1.144
+    HostName               10.1.1.142
     ServerAliveInterval    60
     TCPKeepAlive           yes
     ProxyCommand           ssh -qaY vmfilehost 'nc -w 14400 %h %p'
