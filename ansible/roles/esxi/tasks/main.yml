@@ -18,7 +18,7 @@
 
   tasks:
   - vsphere_guest:
-      vcenter_hostname: "127.0.0.1"
+      vcenter_hostname: "vmcenter.cse.ohio-state.edu"
       username: "{{ username }}"
       password: "{{ password }}"
       guest: "{{ hostname }}"
@@ -42,9 +42,6 @@
         num_cpus: 1
         osid: ubuntu64guest
         scsi: paravirtual
-        vm_cdrom:
-          type: "iso"
-          iso_path: "DatastoreName/cd-image.iso"
       esxi:
         datacenter: CSEOSUDatacenter
         hostname: vh1.cse.ohio-state.edu
