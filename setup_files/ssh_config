@@ -1,4 +1,5 @@
 Host vmfilehost
+    # CSE username
     User                   casavant
     HostName               vmfilehost.cse.ohio-state.edu
     ProxyCommand           none
@@ -6,10 +7,15 @@ Host vmfilehost
     BatchMode              yes
     PasswordAuthentication no
 
-Host g4* vmcenter.cse.ohio-state.edu
+Host g1dev
+    # User on dev host
+    User                   jeff
+    HostName               10.1.1.144
     ServerAliveInterval    60
     TCPKeepAlive           yes
     ProxyCommand           ssh -qaY vmfilehost 'nc -w 14400 %h %p'
     ControlMaster          auto
     ControlPath            ~/.ssh/mux-%r@%h:%p
     ControlPersist         8h
+
+# With this included, ssh g1dev should get you to our dev VM from outside.
