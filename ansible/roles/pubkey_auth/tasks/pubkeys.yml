@@ -1,9 +1,9 @@
 # Add users for jeff, abby, and alex
 
-- name: users | ensure jeff .ssh exists
+- name: pubkeys | jeff .ssh dir
   file: path=/home/jeff/.ssh state=directory
 
-- name: users | install jeff authorized_keys file
+- name: pubkeys | jeff authorized_keys file
   copy:
     src: jeff_authorizedkeys
     dest: /home/jeff/.ssh/authorized_keys
@@ -12,10 +12,10 @@
     mode: 0644
     force: yes
 
-- name: users | ensure alex .ssh exists
+- name: pubkeys | alex .ssh dir
   file: path=/home/alex/.ssh state=directory
 
-- name: users | install abby authorized_keys file
+- name: pubkeys | alex authorized_keys file
   copy:
     src: alex_authorizedkeys
     dest: /home/alex/.ssh/authorized_keys
@@ -24,10 +24,10 @@
     mode: 0644
     force: yes
 
-- name: users | ensure abby .ssh exists
+- name: pubkeys | abby .ssh dir
   file: path=/home/abby/.ssh state=directory
 
-- name: users | install abby authorized_keys file
+- name: pubkeys | abby authorized_keys file
   copy:
     src: abby_authorizedkeys
     dest: /home/abby/.ssh/authorized_keys

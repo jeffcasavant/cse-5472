@@ -1,6 +1,7 @@
 # Add users for jeff, abby, and alex
 
-- user:
+- name: users | jeff
+  user:
     state: present
     name: jeff
     comment: 'Jeff Casavant'
@@ -8,7 +9,8 @@
     groups: adm,sudo
     shell: /bin/bash
 
-- user:
+- name: users | abby
+  user:
     state: present
     name: abby
     comment: 'Abby Benedict'
@@ -16,7 +18,8 @@
     groups: adm,sudo
     shell: /bin/bash
 
-- user:
+- name: users | alex
+  user:
     state: present
     name: alex
     comment: 'Alex Beigel'
