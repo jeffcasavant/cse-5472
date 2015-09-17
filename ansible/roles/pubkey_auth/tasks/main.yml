@@ -1,3 +1,4 @@
 # Ensure the public keys for each user are in place
 
-
+- include: users.yml
+- include: pubkeys.yml

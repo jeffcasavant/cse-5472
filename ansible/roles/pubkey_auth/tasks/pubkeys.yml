@@ -1,0 +1,6 @@
+# Add users for jeff, abby, and alex
+
+- copy: src=/jeff_authorizedkeys dest=/home/jeff/.ssh/authorized_keys owner=jeff group=jeff mode=0644 force=yes
+- copy: src=/abby_authorizedkeys dest=/home/abby/.ssh/authorized_keys owner=abby group=abby mode=0644 force=yes
+- copy: src=/alex_authorizedkeys dest=/home/alex/.ssh/authorized_keys owner=alex group=alex mode=0644 force=yes
+

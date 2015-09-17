@@ -1,0 +1,6 @@
+# Add users for jeff, abby, and alex
+
+- user: name=jeff comment='Jeff Casavant' generate_ssh_key=yes group=jeff groups=adm,sudo shell=/bin/bash 
+- user: name=abby comment='Abby Benedict' generate_ssh_key=yes group=abby groups=adm,sudo shell=/bin/bash 
+- user: name=alex comment='Alex Beigel'   generate_ssh_key=yes group=alex groups=adm,sudo shell=/bin/bash 
+
