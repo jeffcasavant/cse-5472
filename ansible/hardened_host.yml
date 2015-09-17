@@ -4,4 +4,4 @@
 - hosts: hardened_host
   roles:
   #- iptables
-  - pubkey_auth
+  #- pubkey_auth
