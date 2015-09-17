@@ -12,7 +12,7 @@
 
  `ansible-playbook -i project1vms all.yml` will connect to your VM and set it up the way it's configured in ansible/roles/hardened.
 
-Directory structure set up following https://docs.ansible.com/ansible/playbooks_best_practices.html#content-organization .
+Directory structure set up following https://docs.ansible.com/ansible/playbooks_best_practices.html#content-organization but the important takeaway is that each element (iptables, selinux, etc.) should be set up in ansible/roles/hardened/tasks/<taskname>.yml and included in ansible/roles/hardened/tasks/main.yml (see the example with iptables).
 
 ## Setting up the dev VM
 
