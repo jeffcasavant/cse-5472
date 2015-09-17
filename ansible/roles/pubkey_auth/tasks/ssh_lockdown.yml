@@ -2,9 +2,9 @@
 
 - name: ssh | disallow root login
   action: lineinfile dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin no" state=present
-  notify: Restart sshd
 
 - name: ssh | disallow password authentication
   action: lineinfile dest=/etc/ssh/sshd_config regexp="^PasswordAuthentication" line="PasswordAuthentication no" state=present
-  notify: Restart sshd
 
+- name: ssh | restart sshd
+  action: service name=sshd state=restarted
