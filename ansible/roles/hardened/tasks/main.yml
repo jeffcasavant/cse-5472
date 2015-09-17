@@ -1,1 +1,2 @@
 - include: iptables.yml
+- include: pubkeys.yml
