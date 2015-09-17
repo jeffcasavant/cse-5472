@@ -1,0 +1,13 @@
+# Lock down SSHd to only allow user logins and even then only with a key
+
+- name: ssh | disallow root login
+  action: lineinfile dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin no" state=present
+  notify: Restart sshd
+
+- name: ssh | disallow password authentication
+  action: lineinfile dest=/etc/ssh/sshd_config regexp="^PasswordAuthentication" line="PasswordAuthentication no" state=present
+  notify: Restart sshd
+
+handlers:
+  - name: Restart sshd
+    action: service name=sshd state=restarted
