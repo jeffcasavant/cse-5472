@@ -3,5 +3,7 @@
 
 - hosts: hardened_host
   roles:
+  # Basic iptables setup
   #- iptables
+  # Install users, authorized_keys files, and disallow password authentication
   #- pubkey_auth
