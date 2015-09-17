@@ -1,1 +1,34 @@
+# Ansible does not have a module for iptables
+# so in order to work in a declarative way, we flush the existing rules
 
+- name: iptables | flush existing rules
+  command: /sbin/iptables -F
+  sudo: true
+
+- name: iptables | flush existing chains
+  command: /sbin/iptables -X
+  sudo: true
+
+- name: iptables | default drop input
+  command: /sbin/iptables -P INPUT DROP
+  sudo: true
+
+- name: iptables | default allow output
+  command: /sbin/iptables -P OUTPUT ACCEPT
+  sudo: true
+
+- name: iptables | default drop forward
+  command: /sbin/iptables -P FORWARD DROP
+
+- name: iptables | allow responses from the internet
+  command: /sbin/iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+  sudo: true
+
+- name: iptables | allow loopback input
+  command: /sbin/iptables -A INPUT -i lo -j ACCEPT
+  sudo: true
+
+- name: iptables | allow ssh input
+  # protocol TCP, port 22, state NEW
+  command: /sbin/iptables -A INPUT -p tcp --dport 22 -m state --state NEW -j ACCEPT
+  sudo: true
