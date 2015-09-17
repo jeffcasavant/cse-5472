@@ -1,0 +1,15 @@
+- name: iptables | install iptables-persistent
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+  apt: pkg=iptables-persistent state=present
+
+- name: iptables | /etc/iptables dir
+  file: path=/etc/iptables state=directory
+
+- name: iptables | save ipv4 rules
+  shell: /sbin/iptables-save > /etc/iptables/rules.v4
+  sudo: true
+
+- name: iptables | save ipv6 rules
+  shell: /sbin/ip6tables-save > /etc/iptables/rules.v6
+  sudo: true
