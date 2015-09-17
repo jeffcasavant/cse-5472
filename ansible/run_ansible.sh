@@ -1,3 +1,3 @@
 #! /bin/bash
 
-ansible-playbook -i project1-vms all.yml --ask-sudo-password
+ansible-playbook -i project1-vms all.yml --ask-sudo-pass
