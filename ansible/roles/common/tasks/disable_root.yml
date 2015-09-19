@@ -1,0 +1,8 @@
+- name: disable root
+  lineinfile:
+    dest: /etc/shadow
+    state: present
+    regexp: 'root:[^!]*?:(.*)'
+    backrefs: true
+    line: 'root:!:\1'
+

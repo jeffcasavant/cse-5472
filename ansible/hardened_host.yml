@@ -3,6 +3,8 @@
 
 - hosts: hardened_host
   roles:
+  # Stuff from hardenubuntu.com
+  - common
   # Basic iptables setup
   - iptables
   # Install users, authorized_keys files, and disallow password authentication
