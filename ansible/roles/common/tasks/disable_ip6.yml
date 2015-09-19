@@ -1,0 +1,12 @@
+- name: disable ipv6
+  copy:
+    src: etc/sysctl.conf
+    dest: /etc/sysctl.conf
+    owner: root
+    group: root
+    mode: 0744
+    force: true
+
+- name: restart sysctl
+  command: sysctl -p
+  sudo: true

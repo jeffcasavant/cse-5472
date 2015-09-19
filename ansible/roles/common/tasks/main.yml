@@ -1,1 +1,2 @@
 - include: disable_root.yml
+- include: disable_ipv6.yml
