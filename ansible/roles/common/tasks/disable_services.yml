@@ -1,7 +1,6 @@
 - name: uninstall unnecessary services
   apt:
-    name: {{ item }}
-    state: absent
+    name={{ item }} state=absent
   with_items:
     - apport
     - apport-symptoms
