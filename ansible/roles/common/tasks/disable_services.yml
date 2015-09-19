@@ -1,29 +1,16 @@
+- name: uninstall unnecessary services
+  apt:
+    name: {{ item }}
+    state: absent
+    with_items:
+      - apport
+      - apport-symptoms
+      - python3-apport
+      - at
+
 - name: disable anacron
   lineinfile:
     dest: /etc/crontab
     state: absent
     regexp: anacron
-
-- name: disable apport
-  lineinfile:
-    dest: /etc/default/apport
-    state: present
-    regexp: enabled
-    line: enabled=0
-
-- name: disable atd | create atd override file
-  copy:
-    dest: /etc/init/atd.override
-    content: manual
-    owner: root
-    group: root
-    mode: 0644
-
-- name: disable autofs | create autofs udev rule
-  copy:
-    dest: /etc/udev/rules.d/85-no-automount.rules
-    content: SUBSYSTEM=="usb", ENV{UDISKS_AUTO}="0"
-    owner: root
-    group: root
-    mode: 0644
 
