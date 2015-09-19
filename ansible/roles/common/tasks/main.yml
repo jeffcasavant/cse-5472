@@ -1,3 +1,5 @@
 - include: update_all.yml
 - include: disable_root.yml
 - include: disable_ipv6.yml
+- include: fstab.yml
+- include: disable_services.yml
