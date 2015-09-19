@@ -1,0 +1,8 @@
+- name: disable ip spoofing
+  copy:
+    dest: /etc/host.conf
+    src: etc/host.conf
+    force: yes
+    owner: root
+    group: root
+    mode: 0644
