@@ -1,12 +1,12 @@
 - name: uninstall unnecessary services
   apt:
-    name: "{{ item }}"
+    name: {{ item }}
     state: absent
-    with_items:
-      - apport
-      - apport-symptoms
-      - python3-apport
-      - at
+  with_items:
+    - apport
+    - apport-symptoms
+    - python3-apport
+    - at
 
 - name: disable anacron
   lineinfile:
