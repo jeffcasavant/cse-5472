@@ -2,14 +2,13 @@
   environment:
     DEBIAN_FRONTEND: noninteractive
   apt: pkg=iptables-persistent state=present
+  notify:
+  - Save ipv4 rules
+  - Save ipv6 rules
 
 - name: iptables | /etc/iptables dir
   file: path=/etc/iptables state=directory
+  notify:
+  - Save ipv4 rules
+  - Save ipv6 rules
 
-- name: iptables | save ipv4 rules
-  shell: /sbin/iptables-save > /etc/iptables/rules.v4
-  sudo: true
-
-- name: iptables | save ipv6 rules
-  shell: /sbin/ip6tables-save > /etc/iptables/rules.v6
-  sudo: true

@@ -15,28 +15,40 @@
   command: /sbin/iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT -m comment --comment 'AllowResponses'
   sudo: true
   when: rules.stdout.find('AllowResponses') == -1
+  notify:
+  - Save ipv4 rules
 
 - name: iptables | allow loopback input
   command: /sbin/iptables -A INPUT -i lo -j ACCEPT -m comment --comment 'AllowLoopback'
   sudo: true
   when: rules.stdout.find('AllowLoopback') == -1
+  notify:
+  - Save ipv4 rules
 
 - name: iptables | allow ssh input
   command: /sbin/iptables -A INPUT -p tcp --dport 22 -m state --state NEW -j ACCEPT -m comment --comment 'AllowSSH'
   sudo: true
   when: rules.stdout.find('AllowSSH') == -1
+  notify:
+  - Save ipv4 rules
 
 - name: iptables | default allow output
   command: /sbin/iptables -P OUTPUT ACCEPT
   sudo: true
   when: rules.stdout.find('Chain OUTPUT (policy ACCEPT') == -1
+  notify:
+  - Save ipv4 rules
 
 - name: iptables | default drop input
   command: /sbin/iptables -P INPUT DROP
   sudo: true
   when: rules.stdout.find('Chain INPUT (policy DROP') == -1
+  notify:
+  - Save ipv4 rules
 
 - name: iptables | default drop forward
   command: /sbin/iptables -P FORWARD DROP
   sudo: true
   when: rules.stdout.find('Chain FORWARD (policy DROP') == -1
+  notify:
+  - Save ipv4 rules

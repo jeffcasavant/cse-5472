@@ -1,0 +1,7 @@
+- name: Save ipv4 rules
+  shell: /sbin/iptables-save > /etc/iptables/rules.v4
+  sudo: true
+
+- name: Save ipv6 rules
+  shell: /sbin/ip6tables-save > /etc/iptables/rules.v6
+  sudo: true
