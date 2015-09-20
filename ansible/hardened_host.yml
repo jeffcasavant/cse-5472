@@ -10,3 +10,4 @@
   # Install users, authorized_keys files, and disallow password authentication
   # Don't enable this if you don't have your vmfilehost and g1dev pubkeys in roles/pubkey_auth/files/<name>_authorizedkeys
   #- pubkey_auth
+  - apache
