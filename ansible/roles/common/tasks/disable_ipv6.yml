@@ -6,7 +6,5 @@
     group: root
     mode: 0744
     force: true
+  notify: Restart sysctl
 
-- name: restart sysctl
-  command: sysctl -p
-  sudo: true
