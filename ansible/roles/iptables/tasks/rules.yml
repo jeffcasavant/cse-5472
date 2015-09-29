@@ -32,6 +32,11 @@
   notify:
   - Save ipv4 rules
 
+- name: iptables | allow http input
+  command: /sbin/iptables -A INPUT -p tcp --dport 80 -m state --state NEW -j ACCEPT -m comment --comment 'AllowHTTP'
+  sudo: true
+  when: rules.stdout.find('AllowHTTP') == -1
+
 - name: iptables | default allow output
   command: /sbin/iptables -P OUTPUT ACCEPT
   sudo: true

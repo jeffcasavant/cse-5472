@@ -1,0 +1,30 @@
+---
+- name: install apache2
+  apt: name=apache2 update_cache=yes state=latest
+  sudo: yes
+
+#add custom config
+- name: add config
+  copy:
+   dest: /etc/apache2/apache2.conf
+   src: etc/apache2/apache2.conf
+   force: yes
+   owner: root
+   group: www-data
+   mode: 0644
+
+- name: enabled mod_rewrite 
+  apache2_module: name=rewrite state=present
+  notify:
+  - restart apache2
+
+#disable unused modules
+- name: disable unused modules - conf files
+  file: dest="/etc/apache2/mods-enabled/{{ item }}.conf" state=absent
+  with_items:
+  - "{{ unwanted_modules }}"
+
+- name: disable unused modules - conf files
+  file: dest="/etc/apache2/mods-enabled/{{ item }}.load" state=absent
+  with_items:
+  - "{{ unwanted_modules }}"

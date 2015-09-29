@@ -4,9 +4,13 @@
 - hosts: hardened_host
   roles:
   # Stuff from hardenubuntu.com
+  - lynis
+  - ossec
   - common
   # Basic iptables setup
   - iptables
   # Install users, authorized_keys files, and disallow password authentication
   # Don't enable this if you don't have your vmfilehost and g1dev pubkeys in roles/pubkey_auth/files/<name>_authorizedkeys
-  #- pubkey_auth
+  - pubkey_auth
+  - apache 
+  - clamav
