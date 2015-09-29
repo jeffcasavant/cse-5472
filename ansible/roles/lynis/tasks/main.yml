@@ -1,0 +1,8 @@
+---
+
+- name: install 
+  apt: name=lynis update_cache=yes state=latest
+  sudo: yes
+
+- cron: name="lynis" minute="0" hour="20" job="lynis --cronjob" user="root"
+
