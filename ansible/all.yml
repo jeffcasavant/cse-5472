@@ -1,4 +1,5 @@
 # Overall build
 # This will get complicated when we have more than one VM
 
-- include: hardened_host.yml
+- include: host_configs/hardened_host.yml
+- include: host_configs/dev_host.yml
