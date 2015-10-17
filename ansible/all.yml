@@ -1,6 +1,6 @@
 # Overall build
 # This will get complicated when we have more than one VM
 
-- include: host_configs/hardened_host.yml
-- include: host_configs/dev_host.yml
-- include: host_configs/router.yml
+- include: hardened_host.yml
+- include: dev_host.yml
+- include: router.yml

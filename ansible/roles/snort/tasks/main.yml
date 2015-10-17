@@ -1,13 +1,17 @@
 ---
 #snort task
 
--name: install snort
- apt: pkg={{ item }} update_cache=yes state="present"
- notify: restart snort
- with_items: 
-  - snort
-  - oinkmaster
-
+- name: install snort
+  apt:
+    pkg: "{{ item }}" 
+    update_cache: yes
+    cache_valid_time: 3600
+    state: present
+  notify: restart snort
+  with_items: 
+   - snort
+   - oinkmaster
+ 
 - name: configure snort
   template: >
     src=etc/snort/snort.conf.j2 dest=/etc/snort/snort.conf
