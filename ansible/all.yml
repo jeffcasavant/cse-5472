@@ -3,3 +3,4 @@
 
 - include: host_configs/hardened_host.yml
 - include: host_configs/dev_host.yml
+- include: host_configs/router.yml
