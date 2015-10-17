@@ -4,9 +4,7 @@
 
  You'll need to:
  - add the ssh_config settings to your ~/.ssh/config
- - spin a VM out of the template g1dev
- - get the IP from the VM and put it in project1vms
- - set up key authentication to that IP with your username
+ - add the ansible.cfg settings to your ~/.ansible.cfg
 
  then, the command
 
