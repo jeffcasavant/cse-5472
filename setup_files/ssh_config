@@ -1,16 +1,21 @@
+# Find and replace instances of casavant w/ OSU username
+# replace instances of jeff with 5472 username
+
+Host osu
+    HostName stdlinux.cse.ohio-state.edu
+    User casavant
+
 Host vmfilehost
-    # CSE username
     User                   casavant
     HostName               vmfilehost.cse.ohio-state.edu
-    ProxyCommand           none
-    #IdentityFile           ~/.ssh/id_rsa
+    ProxyCommand           ssh -qaY osu 'nc -w 14400 %h %p'
+    IdentityFile           ~/.ssh/id_rsa
     BatchMode              yes
     #PasswordAuthentication no
 
 Host g1dev
-    # User on dev host
-    User                   jeff
     HostName               10.1.1.142
+    User                   jeff
     ServerAliveInterval    60
     TCPKeepAlive           yes
     ProxyCommand           ssh -qaY vmfilehost 'nc -w 14400 %h %p'
@@ -18,4 +23,13 @@ Host g1dev
     ControlPath            ~/.ssh/mux-%r@%h:%p
     ControlPersist         8h
 
-# With this included, ssh g1dev should get you to our dev VM from outside.
+Host g1router
+    HostName               10.0.0.1
+    User                   jeff
+    ServerAliveInterval    60
+    TCPKeepAlive           yes
+    ProxyCommand           ssh -qaY vmfilehost 'nc -w 14400 %h %p'
+    ControlMaster          auto
+    ControlPath            ~/.ssh/mux-%r@%h:%p
+    ControlPersist         8h
+    IdentityFile           ~/.ssh/id_rsa
