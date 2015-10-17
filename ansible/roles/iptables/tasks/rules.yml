@@ -54,6 +54,6 @@
 - name: iptables | default drop forward
   command: /sbin/iptables -P FORWARD DROP
   sudo: true
-  when: rules.stdout.find('Chain FORWARD (policy DROP') == -1
+  when: rules.stdout.find('Chain FORWARD (policy DROP') == -1 and {{ forward }}
   notify:
   - Save ipv4 rules

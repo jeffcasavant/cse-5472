@@ -12,3 +12,5 @@ ossec:
 
   # IP Address of your OSSEC server
   server: 10.1.1.142
+
+forward: no
