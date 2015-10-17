@@ -5,7 +5,7 @@
     state: present
     name: jeff
     comment: 'Jeff Casavant'
-    group: jeff
+    group: users
     groups: adm,sudo
     shell: /bin/bash
 
@@ -14,7 +14,7 @@
     state: present
     name: abby
     comment: 'Abby Benedict'
-    group: abby
+    group: users
     groups: adm,sudo
     shell: /bin/bash
 
@@ -23,7 +23,7 @@
     state: present
     name: alex
     comment: 'Alex Beigel'
-    group: alex
+    group: users
     groups: adm,sudo
     shell: /bin/bash
 

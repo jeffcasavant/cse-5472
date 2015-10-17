@@ -8,3 +8,8 @@
 
 - name: ssh | restart sshd
   action: service name=sshd state=restarted
+  ignore_errors: yes
+
+- name: ssh | restart ssh
+  action: service name=ssh state=restarted
+  ignore_errors: yes

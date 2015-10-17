@@ -8,7 +8,7 @@
     src: jeff_authorizedkeys
     dest: /home/jeff/.ssh/authorized_keys
     owner: jeff
-    group: jeff
+    group: users
     mode: 0644
     force: yes
 
@@ -20,7 +20,7 @@
     src: alex_authorizedkeys
     dest: /home/alex/.ssh/authorized_keys
     owner: alex
-    group: alex
+    group: users
     mode: 0644
     force: yes
 
@@ -32,7 +32,7 @@
     src: abby_authorizedkeys
     dest: /home/abby/.ssh/authorized_keys
     owner: abby
-    group: abby
+    group: users
     mode: 0644
     force: yes
 

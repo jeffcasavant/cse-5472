@@ -2,5 +2,5 @@
 
 - hosts: router 
   roles:
-  - snort
+  #- snort
   - pubkey_auth
