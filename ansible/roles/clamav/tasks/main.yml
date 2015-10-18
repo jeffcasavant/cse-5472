@@ -5,7 +5,7 @@
   notify: restart clamav
 
 - name: ensure custom log file exists and has proper permissions
-  file: dest={{ log_file_dest }} mode=0600 state=file
+  file: dest={{ log_file_dest }} mode=0600 state=directory
 
 - cron: name="clamscan" minute="0" hour="7,19" job="date >> /var/log/clamav/cron_clamscan.log && clamscan / -ir >> /var/log/clamav/cron_clamscan.log" user="root" 
 - cron: name="clamscan update database" minute="0" hour="*" job="freshclam" user="root" 
