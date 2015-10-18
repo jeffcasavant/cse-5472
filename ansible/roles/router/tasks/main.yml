@@ -3,9 +3,10 @@
 
 - name: turn on ipv4 forward in sysctl
   lineinfile:
-    dest: /etc/sysctlconf
-    line: net.ipv4.forward = 1
+    dest: /etc/sysctl.conf
+    line: net.ipv4.ip_forward = 1
     state: present
+  notify: Reload sysctl
 
 - name: install dhcp server
   apt:
