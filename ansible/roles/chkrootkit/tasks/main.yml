@@ -1,7 +1,7 @@
 ---
 
 - name: install 
-  apt: name=chkrootkit update_cache=yes state=latest
+  apt: name=chkrootkit update_cache=yes state=latest cache_valid_time=3600
   sudo: yes
 
 

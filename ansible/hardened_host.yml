@@ -3,10 +3,10 @@
 
 - hosts: hardened_host
   roles:
+  - common
   # Stuff from hardenubuntu.com
   - lynis
   - ossec
-  - common
   # Basic iptables setup
   - iptables
   # Install users, authorized_keys files, and disallow password authentication
