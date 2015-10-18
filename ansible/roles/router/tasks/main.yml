@@ -1,3 +1,24 @@
 - name: set hostname
   hostname: name=g1router
 
+- name: turn on ipv4 forward in sysctl
+  lineinfile:
+    dest: /etc/sysctlconf
+    line: net.ipv4.forward = 1
+    state: present
+
+- name: install dhcp server
+  apt:
+    name: isc-dhcp-server
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: configure dhcp server
+  copy:
+    src: dhcpd.conf
+    dest: /etc/dhcp/dhcpd.conf
+    mode: 0600
+    owner: root
+    group: root
+  notify: Restart DHCPD

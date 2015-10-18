@@ -1,0 +1,4 @@
+- name: Restart DHCPD
+  service:
+    name: dhcp
+    state: restarted
