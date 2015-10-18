@@ -16,11 +16,7 @@
   template: >
     src=etc/snort/snort.conf.j2 dest=/etc/snort/snort.conf
     owner=root group=root mode=0644
-
-- name: snort service 
-  service: >
-     name="snort" 
-     state="started"
+  notify: restart snort
 
 - name: open read permissions on snort logs
   file: >
@@ -33,5 +29,8 @@
     src=etc/cron.daily/oinkmaster.j2 dest=/etc/cron.daily/oinkmaster
     owner=root group=root mode=0755
 
-
+- name: snort service started
+  service:
+    name: snort
+    state: started
 
