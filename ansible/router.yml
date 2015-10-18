@@ -3,6 +3,6 @@
 - hosts: router 
   roles:
   - router
-  #- snort
+  - snort
   - pubkey_auth
   - iptables

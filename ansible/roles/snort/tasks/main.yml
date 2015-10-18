@@ -8,6 +8,7 @@
     cache_valid_time: 3600
     state: present
   notify: restart snort
+  ignore_errors: true
   with_items: 
    - snort
    - oinkmaster
