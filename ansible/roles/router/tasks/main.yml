@@ -22,3 +22,12 @@
     owner: root
     group: root
   notify: Restart DHCPD
+
+- name: configure interface ips
+  copy:
+    src: interfaces
+    dest: /etc/network/interfaces
+    mode: 0600
+    owner: root
+    group: root
+  notify: Restart networking

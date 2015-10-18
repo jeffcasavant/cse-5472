@@ -2,3 +2,8 @@
   service:
     name: dhcp
     state: restarted
+
+- name: Restart networking
+  service:
+    name: networking
+    state: restarted
